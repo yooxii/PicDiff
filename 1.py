@@ -29,7 +29,7 @@ def compare_images(img1_path, img2_path):
     img2 = cv2.imread(img2_path, cv2.IMREAD_GRAYSCALE)
 
     # 创建SIFT特征提取器
-    sift = cv2.xfeatures2d.SIFT_create()
+    sift = cv2.SIFT_create()
 
     # 在两张图片上检测关键点和计算特征描述子
     keypoints1, descriptors1 = sift.detectAndCompute(img1, None)
@@ -55,8 +55,8 @@ def compare_images(img1_path, img2_path):
 
 # 示例用法
 
-img1_path = "afterEC.png"
-img2_path = "beforeEC.png"
+img1_path = "Pics/afterEC.png"
+img2_path = "Pics/beforeEC.png"
 similarity = compare_images_pixel(img1_path, img2_path)
 print("相似度：", similarity)
 

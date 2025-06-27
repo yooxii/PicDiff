@@ -29,7 +29,7 @@ def compare_images_orb(img1_path, img2_path):
 
 
 # 示例用法
-img1_path = "standard.png"
-img2_path = "standard.png"
+img1_path = "Pics/standard.png"
+img2_path = "Pics/beforeEC.png"
 similarity = compare_images_orb(img1_path, img2_path)
 print("相似度：", similarity)
