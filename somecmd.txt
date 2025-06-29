@@ -1,6 +1,12 @@
 python -m pip install -i https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple --upgrade pip
 pip config set global.index-url https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
 
+https://mirrors.aliyun.com/pypi/simple/
+https://pypi.mirrors.ustc.edu.cn/simple/
+https://repo.huaweicloud.com/repository/pypi/simple/
+https://mirrors.cloud.tencent.com/pypi/simple/
+
+
 20003428
 K3428k%
 J3428j%
