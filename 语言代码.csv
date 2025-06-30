@@ -1,0 +1,103 @@
+语言代码	语言	4.0 traineddata
+afr	南非荷兰语	afr.traineddata
+amh	阿姆哈拉语	amh.traineddata
+ara	阿拉伯语	ara.traineddata
+asm	阿萨姆语	asm.traineddata
+aze	阿塞拜疆语	aze.traineddata
+aze_cyrl	阿塞拜疆语 - 西里尔字母	aze_cyrl.traineddata
+bel	白俄罗斯语	bel.traineddata
+ben	孟加拉语	ben.traineddata
+bod	藏语	bod.traineddata
+bos	波斯尼亚语	bos.traineddata
+bul	保加利亚语	bul.traineddata
+cat	加泰罗尼亚语；瓦伦西亚语	cat.traineddata
+ceb	宿务语	ceb.traineddata
+ces	捷克语	ces.traineddata
+chi_sim	中文 - 简体	chi_sim.traineddata
+chi_tra	中文 - 繁体	chi_tra.traineddata
+chr	切罗基语	chr.traineddata
+cym	威尔士语	cym.traineddata
+dan	丹麦语	dan.traineddata
+deu	德语	deu.traineddata
+dzo	宗喀语	dzo.traineddata
+ell	现代希腊语 (1453-)	ell.traineddata
+eng	英语	eng.traineddata
+enm	中世纪英语 (1100-1500)	enm.traineddata
+epo	世界语	epo.traineddata
+est	爱沙尼亚语	est.traineddata
+eus	巴斯克语	eus.traineddata
+fas	波斯语	fas.traineddata
+fin	芬兰语	fin.traineddata
+fra	法语	fra.traineddata
+frk	德语哥特体	frk.traineddata
+frm	中世纪法语 (约 1400-1600)	frm.traineddata
+gle	爱尔兰语	gle.traineddata
+glg	加利西亚语	glg.traineddata
+grc	古希腊语 (-1453)	grc.traineddata
+guj	古吉拉特语	guj.traineddata
+hat	海地克里奥尔语	hat.traineddata
+heb	希伯来语	heb.traineddata
+hin	印地语	hin.traineddata
+hrv	克罗地亚语	hrv.traineddata
+hun	匈牙利语	hun.traineddata
+iku	因纽特语	iku.traineddata
+ind	印度尼西亚语	ind.traineddata
+isl	冰岛语	isl.traineddata
+ita	意大利语	ita.traineddata
+ita_old	意大利语 - 古体	ita_old.traineddata
+jav	爪哇语	jav.traineddata
+jpn	日语	jpn.traineddata
+kan	卡纳达语	kan.traineddata
+kat	格鲁吉亚语	kat.traineddata
+kat_old	格鲁吉亚语 - 古体	kat_old.traineddata
+kaz	哈萨克语	kaz.traineddata
+khm	高棉语	khm.traineddata
+kir	吉尔吉斯语	kir.traineddata
+kor	韩语	kor.traineddata
+kur	库尔德语	kur.traineddata
+lao	老挝语	lao.traineddata
+lat	拉丁语	lat.traineddata
+lav	拉脱维亚语	lav.traineddata
+lit	立陶宛语	lit.traineddata
+mal	马拉雅拉姆语	mal.traineddata
+mar	马拉地语	mar.traineddata
+mkd	马其顿语	mkd.traineddata
+mlt	马耳他语	mlt.traineddata
+msa	马来语	msa.traineddata
+mya	缅甸语	mya.traineddata
+nep	尼泊尔语	nep.traineddata
+nld	荷兰语；佛兰德语	nld.traineddata
+nor	挪威语	nor.traineddata
+ori	奥里亚语	ori.traineddata
+pan	旁遮普语	pan.traineddata
+pol	波兰语	pol.traineddata
+por	葡萄牙语	por.traineddata
+pus	普什图语	pus.traineddata
+ron	罗马尼亚语；摩尔多瓦语	ron.traineddata
+rus	俄语	rus.traineddata
+san	梵语	san.traineddata
+sin	僧伽罗语	sin.traineddata
+slk	斯洛伐克语	slk.traineddata
+slv	斯洛文尼亚语	slv.traineddata
+spa	西班牙语；卡斯蒂利亚语	spa.traineddata
+spa_old	西班牙语；卡斯蒂利亚语 - 古体	spa_old.traineddata
+sqi	阿尔巴尼亚语	sqi.traineddata
+srp	塞尔维亚语	srp.traineddata
+srp_latn	塞尔维亚语 - 拉丁字母	srp_latn.traineddata
+swa	斯瓦希里语	swa.traineddata
+swe	瑞典语	swe.traineddata
+syr	叙利亚语	syr.traineddata
+tam	泰米尔语	tam.traineddata
+tel	泰卢固语	tel.traineddata
+tgk	塔吉克语	tgk.traineddata
+tgl	他加禄语	tgl.traineddata
+tha	泰语	tha.traineddata
+tir	提格雷语	tir.traineddata
+tur	土耳其语	tur.traineddata
+uig	维吾尔语	uig.traineddata
+ukr	乌克兰语	ukr.traineddata
+urd	乌尔都语	urd.traineddata
+uzb	乌兹别克语	uzb.traineddata
+uzb_cyrl	乌兹别克语 - 西里尔字母	uzb_cyrl.traineddata
+vie	越南语	vie.traineddata
+yid	意第绪语	yid.traineddata
