@@ -60,7 +60,12 @@ def dyn_bin_pic(img):
 res1 = binary_pic("Pics/standard.png")
 
 # 识别文字
-text = pytesseract.image_to_string(res1, lang="eng", config="--psm 1")
+text = pytesseract.image_to_data(
+    res1,
+    lang="eng",
+    config="--psm 1 -c tessedit_write_images=true",
+    output_type=Output.DICT,
+)
 print(text)
 
 cv2.waitKey(0)
