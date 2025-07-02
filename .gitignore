@@ -1,2 +1,6 @@
 # 默认忽略的文件
 somecmd.txt
+
+__pycache__/
+*.py[cod]
+*$py.class
