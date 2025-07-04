@@ -29,17 +29,22 @@ def compare_images(standard: Img, uut: Img):
 
 
 def main():
-    # uuts = list_path_images("Pics")
-    # stds = list_path_images("Standards")
-    # print(uuts)
-    # print(stds)
+    # Load standard and test images
     std = Img("Standards/AP23NA.png")
     uut = Img("Pics/UUT-2.jpg")
 
-    with open("data.json", "w") as f:
-        json.dump(std.data, f)
-        f.write("\n")
-        json.dump(uut.data, f)
+    # Compare images and get differences
+    diff_image, diff_data = std.compare_with(uut)
+    
+    # Save results
+    cv.imwrite("diff_result.jpg", diff_image)
+    
+    with open("diff_data.json", "w") as f:
+        json.dump(diff_data, f, indent=4)
+    
+    print("Comparison completed:")
+    print(f"- Differences saved to diff_result.jpg")
+    print(f"- Difference data saved to diff_data.json")
 
 
 if __name__ == "__main__":
