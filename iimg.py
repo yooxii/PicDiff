@@ -36,6 +36,36 @@ class InfoBox:
         self.line_type = line_type
 
 
+def deal_text(img, meth: str) -> dict:
+    if img is None:
+        raise ValueError("No Image")
+    src = pytesseract.image_to_data(
+        img,
+        lang="eng",
+        config="--psm 1 -c tessedit_write_images=true",
+        output_type=Output.DICT,
+    )
+    data = {}
+    for k in src.keys():
+        data[k] = []
+    # 过滤-1置信度的文字
+    for i, cf in enumerate(src["conf"]):
+        if cf == -1:
+            continue
+        for k, v in src.items():
+            data[k].append(v[i])
+
+    total_conf = 0
+    for i, cf in enumerate(data["conf"]):
+        total_conf += cf
+    average_conf = total_conf / len(data["conf"])
+    data["total_conf"] = total_conf
+    data["average_conf"] = average_conf
+    data["text_num"] = len(data["text"])
+    data["meth"] = meth
+    return data
+
+
 class Img:
     def __init__(self, img_path):
         self.path = img_path
@@ -51,7 +81,7 @@ class Img:
         self.height = self.img.shape[0]
         self.data = None
 
-        self.img2StandardSize()
+        self.img2standard_size()
 
     def reread(self, pic=None):
         if isinstance(pic, str):
@@ -62,7 +92,7 @@ class Img:
             self.img = self.main_img.copy()
         return self.img
 
-    def img2StandardSize(self):
+    def img2standard_size(self):
         """将图片裁剪至标准宽度的大小，这个宽度默认为2000像素"""
         img = self.reread()
         img = self.img2gray(img)
@@ -122,19 +152,19 @@ class Img:
         img = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
         return img
 
-    def gray2bin_OTSU(self, img=None):
-        if img is None:
-            img = self.img.copy()
-        img = cv.threshold(img, 0, 255, cv.THRESH_BINARY | cv.THRESH_OTSU)[1]
-        return img
+    def gray2bin_otsu(self, gray_img=None):
+        if gray_img is None:
+            gray_img = self.img.copy()
+        gray_img = cv.threshold(gray_img, 0, 255, cv.THRESH_BINARY | cv.THRESH_OTSU)[1]
+        return gray_img
 
-    def gray2bin_adap(self, img=None):
-        if img is None:
-            img = self.img.copy()
-        img = cv.adaptiveThreshold(
-            img, 255, cv.ADAPTIVE_THRESH_GAUSSIAN_C, cv.THRESH_BINARY, 45, 7
+    def gray2bin_adap(self, gray_img=None):
+        if gray_img is None:
+            gray_img = self.img.copy()
+        gray_img = cv.adaptiveThreshold(
+            gray_img, 255, cv.ADAPTIVE_THRESH_GAUSSIAN_C, cv.THRESH_BINARY, 45, 7
         )
-        return img
+        return gray_img
 
     def match_template(self, template_path):
         """在图片中匹配传入的模板图片，传入模板图片必须小于图片本身大小
@@ -197,48 +227,18 @@ class Img:
         cv.imwrite(f"{self.name}_text.jpg", self.text_img)
         return self.text_img
 
-    def deal_text(self, img, meth: str) -> dict:
-        if img is None:
-            raise ValueError("No Image")
-        src = pytesseract.image_to_data(
-            img,
-            lang="eng",
-            config="--psm 1 -c tessedit_write_images=true",
-            output_type=Output.DICT,
-        )
-        data = {}
-        for k in src.keys():
-            data[k] = []
-        # 过滤-1置信度的文字
-        for i, cf in enumerate(src["conf"]):
-            if cf == -1:
-                continue
-            for k, v in src.items():
-                data[k].append(v[i])
-
-        total_conf = 0
-        average_conf = 0
-        for i, cf in enumerate(data["conf"]):
-            total_conf += cf
-        average_conf = total_conf / len(data["conf"])
-        data["total_conf"] = total_conf
-        data["average_conf"] = average_conf
-        data["text_num"] = len(data["text"])
-        data["meth"] = meth
-        return data
-
     def max_conf_text(self):
         _data = []
 
         img = self.cut_text_area()
         img = self.img2gray(img)
-        _data.append(self.deal_text(img, "non"))
+        _data.append(deal_text(img, "non"))
 
         adpt = self.gray2bin_adap(img)
-        _data.append(self.deal_text(adpt, "adpt"))
+        _data.append(deal_text(adpt, "adpt"))
 
-        otsu = self.gray2bin_OTSU(img)
-        _data.append(self.deal_text(otsu, "otsu"))
+        otsu = self.gray2bin_otsu(img)
+        _data.append(deal_text(otsu, "otsu"))
 
         cv.imwrite(f"{self.name}_adpt.jpg", adpt)
         cv.imwrite(f"{self.name}_otsu.jpg", otsu)
@@ -247,7 +247,7 @@ class Img:
             if self.data is None:
                 self.data = data
                 continue
-            if (data["average_conf"] - self.data["average_conf"] > 10):
+            if data["average_conf"] - self.data["average_conf"] > 10:
                 self.data = data
             elif data["average_conf"] > self.data["average_conf"] and (
                 -5 < data["text_num"] - _data[0]["text_num"] < 5
