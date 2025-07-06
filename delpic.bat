@@ -1,2 +1,2 @@
 del *.jpg
-def *.png
+del *.png
